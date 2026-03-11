@@ -1,3 +1,7 @@
+from faker import Faker
+
+fake = Faker((["es_ES"]))
+
 # Tarefa para a UD2.
 # Faker é un paquete que se usa para xerar datos ficticios de usuarios e así poder
 # facer probas nas nosas aplicacións.
@@ -9,11 +13,18 @@
 # Non poderá haber dous usuarios co mesmo código.
 # Para cada usuario se almacenen os seguintes datos:
 # nome, dirección, correo electrónico, teléfono.
+dic_usuarios = {}
+for i in range(1, 16):
+    dic_usuarios[i] = {
+        "nome": fake.name(),
+        "dirección": fake.address(),
+        "correo electrónico": fake.email(),
+        "teléfono": fake.phone_number(),
+    }
 
 
 # O programa debe mostrar por pantalla os datos de todos os usuarios creados.
-
+print(f"Os usuarios creados son: {dic_usuarios}")
 
 # Despois, o programa seleccionará aleatoriamente a un dos usuarios para mostrar a
 # seguinte mensaxe: "O usuario chamado NOME foi o afortunado!"
-
