@@ -1,6 +1,7 @@
 from faker import Faker
+import random
 
-fake = Faker((["es_ES"]))
+fake = Faker("es_ES")
 
 # Tarefa para a UD2.
 # Faker é un paquete que se usa para xerar datos ficticios de usuarios e así poder
@@ -28,3 +29,6 @@ print(f"Os usuarios creados son: {dic_usuarios}")
 
 # Despois, o programa seleccionará aleatoriamente a un dos usuarios para mostrar a
 # seguinte mensaxe: "O usuario chamado NOME foi o afortunado!"
+claves = list(dic_usuarios.keys())
+afortunado = dic_usuarios[random.choice(claves)]["nome"]
+print(f"O usuario chamado {afortunado} foi o afortunado!")
