@@ -25,10 +25,21 @@ for i in range(1, 16):
 
 
 # O programa debe mostrar por pantalla os datos de todos os usuarios creados.
-print(f"Os usuarios creados son: {dic_usuarios}")
+print(f"Os usuarios creados son: \n")
+list_usuarios = [
+    (
+        f"{id}: {datos['nome']} | \
+{datos['dirección'].replace('\n', ' ').replace('  ', ' ')} | \
+{datos['correo electrónico']} | {datos['teléfono']}"
+    )
+    for id, datos in dic_usuarios.items()
+]
+
+# Agora si podemos usar join
+print(f"{'\n'.join(list_usuarios)}")
 
 # Despois, o programa seleccionará aleatoriamente a un dos usuarios para mostrar a
 # seguinte mensaxe: "O usuario chamado NOME foi o afortunado!"
 claves = list(dic_usuarios.keys())
 afortunado = dic_usuarios[random.choice(claves)]["nome"]
-print(f"O usuario chamado {afortunado} foi o afortunado!")
+print(f"\nO usuario chamado {afortunado} foi o afortunado!")
